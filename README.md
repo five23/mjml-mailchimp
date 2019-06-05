@@ -5,17 +5,19 @@ Mailchimp compatible MJML components.
 ## Usage
 
 ```js
-const mjml2html = require('mjml');
+const mjmlEngine = require('mjml');
 const { registerComponent } = require('mjml-core');
 const { registerDependencies } = require('mjml-validator');
-const { McSection, McImage } = require('mjml-mailchimp');
+const { McSection, McImage, McText, McButton } = require('mjml-mailchimp');
 
 registerComponent(McSection);
 registerComponent(McImage);
+registerComponent(McText);
+registerComponent(McButton);
 registerDependencies({
   'mc-section': ['mj-column', 'mj-group', 'mj-raw'],
-  'mj-column': ['mc-image'],
-  'mj-hero': ['mc-image'],
+  'mj-column': ['mc-image', 'mc-text', 'mc-button'],
+  'mj-hero': ['mc-image']
 });
 
 const template = `
